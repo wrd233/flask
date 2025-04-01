@@ -11,11 +11,7 @@ load_dotenv()
 app = Flask(__name__)
 CORS(app)  # 允许跨域请求
 
-@app.route('/')
-def hello_world():
-    return 'Hello, World! Text-to-Speech API is running.'
-
-@app.route('/generate-speech', methods=['POST'])
+@app.route('/', methods=['POST'])
 def generate_speech():
     # 获取客户端发送的文本
     data = request.json
